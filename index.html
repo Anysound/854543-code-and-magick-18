@@ -181,6 +181,32 @@
   </div>
 </template>
 
+<script>
+  //стрельба файрболом - shift 
+  var fireballSize = 22,
+  wizardSpeed = 3,
+  wizardWidth = 70;
+
+  function getFireballSpeed(left) {
+    if (left) {
+      return 5;
+    }
+    return 2;
+  };
+
+  function getWizardHeight() {
+    return 1.337 * wizardWidth;
+  };
+
+  function getWizardX(width) {
+    return width / 2;
+  };
+
+  function getWizardY(height) {
+    return Math.round(height / 100 * 0.66);
+  };
+</script>
+
 <script src="js/game.js"></script>
 
 </body>
