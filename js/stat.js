@@ -41,13 +41,23 @@ ctx.font = 'PT Mono 16px';
 ctx.fillText('Ура вы победили!', 130, 40);
 ctx.fillText('Список результатов:', 130, 60);
 
+var me = names[0];
+
 for (var i = 0; i < names.length; i++) {
   var maxTime = getMaxElement(times);
-  
+
   ctx.fillText(names[i], INITIAL_POSITION_X + (BAR_WIDTH + GAP) * i, 260);
+
+  ctx.fillStyle = 'rgb(255, Math.round(Math.random() * 255), Math.round(Math.random() * 255))';
+  console.log(ctx.fillStyle);
   
-  //ctx.transform(1, 0, 0, -1, 0);
-  ctx.fillRect(INITIAL_POSITION_X + (BAR_WIDTH + GAP) * i, 150, BAR_WIDTH, (150 * times[i] / maxTime));
+  ctx.fillStyle = 'hsl(210,' + Math.random() * 100 + '%' + ',' + Math.random() * 100 + '%';
+  if (names[i] === 'Вы') {
+    ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+  }
+  ctx.fillRect(INITIAL_POSITION_X + (BAR_WIDTH + GAP) * i, 230, BAR_WIDTH, (-150 * times[i] / maxTime));
+  ctx.fillText(Math.round(times[i]), INITIAL_POSITION_X + (BAR_WIDTH + GAP) * i, 70 * (times[i] / maxTime));
+  console.log(ctx.fillStyle);
 }
 console.log(times);
 }
