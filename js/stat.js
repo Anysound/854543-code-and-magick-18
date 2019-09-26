@@ -37,7 +37,7 @@ window.renderStatistics = function (ctx, names, times) {
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     }
-    ctx.fillRect(INITIAL_POSITION_X + (BAR_WIDTH + GAP) * i, 230, BAR_WIDTH, (-150 * times[i] / maxTime));
-    ctx.fillText(Math.round(times[i]), INITIAL_POSITION_X + (BAR_WIDTH + GAP) * i, (-50 * times[i] / maxTime) + 120);
+    ctx.fillRect(INITIAL_POSITION_X + (BAR_WIDTH + GAP) * i, 230, BAR_WIDTH, (-130 * times[i] / maxTime));
+    ctx.fillText(Math.round(times[i]), INITIAL_POSITION_X + (BAR_WIDTH + GAP) * i, (-50 * times[i] / maxTime) + 140);
   }
 };
