@@ -26,7 +26,7 @@ function createArrWithObjs(arr) {
 }
 createArrWithObjs(mockData);
 
-function makeElements() {
+function makeWizards() {
   var template = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
   var wrapper = document.querySelector('.setup-similar-list');
   var fragment = document.createDocumentFragment();
@@ -43,6 +43,6 @@ function makeElements() {
   wrapper.appendChild(fragment);
 }
 
-makeElements();
+makeWizards();
 
 document.querySelector('.setup-similar').classList.remove('hidden');
