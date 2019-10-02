@@ -57,7 +57,7 @@ var COLORS_OF_FIREBALL = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848']
 
 var colorOfWizardCoat = document.querySelector('.wizard-coat');
 var colorOfWizardEyes = document.querySelector('.wizard-eyes');
-var colorOfWizardFireball = document.querySelector('.setup-fireball');
+var colorOfWizardFireball = document.querySelector('.setup-fireball-wrap');
 console.log(colorOfWizardFireball);
 var setup = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
