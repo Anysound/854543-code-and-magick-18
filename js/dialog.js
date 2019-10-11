@@ -29,7 +29,7 @@
 
   // перетаскивание
   var dialogHandle = document.querySelector('.upload');
-  dialogHandle.addEventListener('mousedown', function(evt) {
+  dialogHandle.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
     var startPoints = {
@@ -41,37 +41,37 @@
 
     function mouseMoveHandler(moveEvt) {
       moveEvt.preventDefault();
-
+      dragged = true;
       var shift = {
-        x: startCoords.x - moveEvt.clientX,
-        y: startCoords.y - moveEvt.clientY
+        x: startPoints.x - moveEvt.clientX,
+        y: startPoints.y - moveEvt.clientY
       };
-  
-      var startPoints = {
+
+      startPoints = {
         x: moveEvt.clientX,
         y: moveEvt.clientY
       };
-  
+
       window.globalVars.setup.style.top = (window.globalVars.setup.offsetTop - shift.y) + 'px';
       window.globalVars.setup.style.left = (window.globalVars.setup.offsetLeft - shift.x) + 'px';
     }
 
     function mouseUpHandler(upEvt) {
       upEvt.preventDefault();
-  
+
       document.removeEventListener('mousemove', mouseMoveHandler);
       document.removeEventListener('mouseup', mouseUpHandler);
 
       if (dragged) {
-        var onClickPreventDefault = function (evt) {
-          evt.preventDefault();
-          dialogHandler.removeEventListener('click', onClickPreventDefault)
+        var onClickPreventDefault = function (clickEvt) {
+          clickEvt.preventDefault();
+          dialogHandle.removeEventListener('click', onClickPreventDefault);
         };
-        dialogHandler.addEventListener('click', onClickPreventDefault);
-      };
-    };
+        dialogHandle.addEventListener('click', onClickPreventDefault);
+      }
+    }
 
     document.addEventListener('mousemove', mouseMoveHandler);
-    document.addEventListener('mouseup', mouseUpHandler)
-  })
+    document.addEventListener('mouseup', mouseUpHandler);
+  });
 })();
