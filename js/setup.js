@@ -1,4 +1,5 @@
 'use strict';
+// создание моков
 var NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)',
@@ -25,7 +26,7 @@ function createArrWithObjs(arr) {
   }
 }
 createArrWithObjs(mockData);
-
+// клонирование
 function makeWizards() {
   var template = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
   var wrapper = document.querySelector('.setup-similar-list');
@@ -56,13 +57,13 @@ var COLORS_OF_EYES = ['black', 'red', 'blue', 'yellow', 'green'];
 var COLORS_OF_FIREBALL = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
 var setup = document.querySelector('.setup');
-var colorOfWizardCoat = document.querySelector('.wizard-coat');
-var colorOfWizardEyes = document.querySelector('.wizard-eyes');
+var colorOfWizardCoat = setup.querySelector('.wizard-coat');
+var colorOfWizardEyes = setup.querySelector('.wizard-eyes');
 var colorOfWizardFireball = setup.querySelector('.setup-fireball-wrap');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = setup.querySelector('.setup-close');
-var icon = document.querySelector('.setup-open-icon');
-var setupSubmit = document.querySelector('.setup-submit');
+var icon = setup.querySelector('.setup-open-icon');
+var setupSubmit = setup.querySelector('.setup-submit');
 
 setupOpen.addEventListener('click', function () {
   setup.classList.remove('hidden');
