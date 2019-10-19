@@ -3,6 +3,8 @@
   // открытие\закрытие окна
   window.globalVars.setupOpen.addEventListener('click', function () {
     window.globalVars.setup.classList.remove('hidden');
+    window.globalVars.setup.style.top = '80px';
+    window.globalVars.setup.style.left = '50%';
   });
 
   window.globalVars.setupClose.addEventListener('click', function () {
@@ -12,6 +14,8 @@
   window.globalVars.setupOpen.addEventListener('keydown', function (evt) {
     if (evt.keyCode === window.globalVars.ENTER_KEYCODE) {
       window.globalVars.setup.classList.remove('hidden');
+      window.globalVars.setup.style.top = '80px';
+      window.globalVars.setup.style.left = '50%';
     }
   });
 
@@ -74,4 +78,6 @@
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
   });
+
+
 })();
