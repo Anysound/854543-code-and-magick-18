@@ -74,4 +74,65 @@
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
   });
+
+  // загрузка с сервера
+  var successHander = function (wizards) {
+    var fragment = document.createDocumentFragment();
+
+    for (var i = 0; i < 4; i++) {
+      fragment.appendChild(renderWizard(wizards[i]));
+    }
+
+    similarListElement.appendChild(fragment);
+    dialog.querySelector('.setup-similar').classList.remove('hidden');
+  };
+
+  var errorHandler = function (errorMessage) {
+    var node = document.createElement('div');
+    node.style = 'position: absolute; display: block; width: 350px; height: 100px; z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
+    node.style.left = 'calc(50% - 125px)';
+    node.style.top = 'calc(50% - 100px)';
+    node.style.fontSize = '30px';
+    node.style.lineHeight = '100px';
+    node.textContent = errorMessage;
+    document.body.insertAdjacentElement('afterbegin', node);
+  };
+  window.backend.load(successHander, errorHandler);
+  // отправка на сервер
+  var dialog = document.querySelector('.setup');
+  dialog.classList.remove('hidden');
+
+  var similarListElement = dialog.querySelector('.setup-similar-list');
+  var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
+
+  var renderWizard = function (wizard) {
+    var wizardElement = similarWizardTemplate.cloneNode(true);
+    wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
+    wizardElement.querySelector('.wizard-coat').style.fill = wizard.colorCoat;
+    return wizardElement;
+  };
+
+  dialog.querySelector('.setup-similar').classList.remove('hidden');
+
+  var form = dialog.querySelector('.setup-wizard-form');
+
+  var successPostHandler = function () {
+    dialog.classList.add('hidden');
+  };
+
+  var errorPostHandler = function (errorMessage) {
+    var node = document.createElement('div');
+    node.style = 'position: absolute; display: block; width: 350px; height: 100px; z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
+    node.style.left = 'calc(50% - 125px)';
+    node.style.top = 'calc(50% - 100px)';
+    node.style.fontSize = '30px';
+    node.style.lineHeight = '100px';
+    node.textContent = errorMessage;
+    document.body.insertAdjacentElement('afterbegin', node);
+  };
+
+  form.addEventListener('submit', function (evt) {
+    window.backend.save(new FormData(form), successPostHandler, errorPostHandler);
+    evt.preventDefault();
+  });
 })();
