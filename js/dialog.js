@@ -76,7 +76,7 @@
   });
 
   // загрузка с сервера
-  var successHander = function (wizards) {
+  var successHandler = function (wizards) {
     var fragment = document.createDocumentFragment();
 
     for (var i = 0; i < 4; i++) {
@@ -90,14 +90,14 @@
   var errorHandler = function (errorMessage) {
     var node = document.createElement('div');
     node.style = 'position: absolute; display: block; width: 350px; height: 100px; z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
-    node.style.left = 'calc(50% - 125px)';
+    node.style.left = 'calc(50% - 175px)';
     node.style.top = 'calc(50% - 100px)';
     node.style.fontSize = '30px';
     node.style.lineHeight = '100px';
     node.textContent = errorMessage;
     document.body.insertAdjacentElement('afterbegin', node);
   };
-  window.backend.load(successHander, errorHandler);
+  window.backend.load(successHandler, errorHandler);
   // отправка на сервер
   var dialog = document.querySelector('.setup');
   dialog.classList.remove('hidden');
@@ -122,11 +122,12 @@
 
   var errorPostHandler = function (errorMessage) {
     var node = document.createElement('div');
-    node.style = 'position: absolute; display: block; width: 350px; height: 100px; z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
-    node.style.left = 'calc(50% - 125px)';
+    node.style = 'position: absolute; display: block; width: 500px; height: 100px; z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
+    node.style.left = 'calc(50% - 250px)';
     node.style.top = 'calc(50% - 100px)';
     node.style.fontSize = '30px';
     node.style.lineHeight = '100px';
+    node.style.whiteSpace = 'nowrap';
     node.textContent = errorMessage;
     document.body.insertAdjacentElement('afterbegin', node);
   };
