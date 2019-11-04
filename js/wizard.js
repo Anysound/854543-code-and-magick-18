@@ -21,6 +21,11 @@
     'purple'
   ];
 
+  var wizard = {
+    onEyesChange: function () {},
+    onCoatChange: function () {}
+  };
+
   var getRandomElement = function (array) {
     var randomElementIndex = Math.floor(Math.random() * array.length);
     return array[randomElementIndex];
