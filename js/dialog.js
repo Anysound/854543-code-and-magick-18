@@ -101,7 +101,9 @@
     node.textContent = errorMessage;
     document.body.insertAdjacentElement('afterbegin', node);
   };
-  window.backend.load(successHandler, errorHandler);
+
+  var URL = 'https://js.dump.academy/code-and-magick/data';
+  window.backend.load(URL, successHandler, errorHandler);
   // отправка на сервер
   var dialog = document.querySelector('.setup');
   dialog.classList.remove('hidden');
